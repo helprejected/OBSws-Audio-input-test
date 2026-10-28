@@ -1,0 +1,8 @@
+[obs]
+host = localhost
+port = 4455
+password =
+
+[monitor]
+input_name = Mic/Aux
+threshold_db = -15
