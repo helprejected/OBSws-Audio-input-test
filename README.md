@@ -1,8 +1,6 @@
 ## OBS audio threshold example
 
-This example subscribes to OBS WebSocket's `InputVolumeMeters` event and
-prints a clear message when the selected input crosses the configured
-threshold in either direction.
+***Janky example trying to use threads for obsws***
 
 ### Setup
 
@@ -15,10 +13,10 @@ threshold in either direction.
 5. Run `python main.py`. Press Ctrl+C to stop.
 
 The script uses OBS's live meter data, not `GetInputVolume` (which reports the
-input's configured volume/gain). The protocol sends `InputVolumeMeters` every
-50 ms, which is 20 Hz. OBS controls this event rate; it cannot provide a true
-50 Hz live meter stream through this event.
+input's configured volume/gain). 
 
-Terminal logging suppresses per-event DEBUG output. A crossing to -40 dB or
-higher prints `THRESHOLD REACHED` once; a crossing back below it prints
-`Threshold no longer reached` once.
+Older method involved requiring obsws data with a polling rate of 50hz (Which is laggy and inefficient)
+-> **Trying to implement threading (learning)**
+
+Terminal logs prints `THRESHOLD REACHED` once threshold reached, crossing back below it prints 
+`Threshold no longer reached`.
